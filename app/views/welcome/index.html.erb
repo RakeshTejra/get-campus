@@ -1,0 +1,35 @@
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <h4 class="form-title"></h4>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Description</th>
+            <th></th>
+          </tr>  
+        </thead>
+        <% @details.each do |detail| %>
+          <tbody>
+            <tr>
+              <td><%= detail.title %></td>
+              <td><%= detail.start_date.strftime("%d/%m/%Y") %></td>
+              <td><%= detail.end_date.strftime("%d/%m/%Y") %></td>
+              <td><%= detail.description %></td>
+              <% if current_user && current_user.detail_added?(detail) %>
+                <td><%= link_to "Detail Already Added", "#", class: "btn btn-info text-bold disabled"%></td>
+              <% else %>
+                <td><%= link_to "Add Detail", welcome_add_detail_path(id: detail.id), class: "btn btn-primary text-bold"%></td>
+              <% end %>
+            </tr>
+          </tbody>
+        <% end %>  
+      </table>     
+    </div>
+  </div>
+</div>    
+
+<%= will_paginate @details, renderer: BootstrapPagination::Rails %>
