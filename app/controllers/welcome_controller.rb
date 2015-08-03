@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
   def add_detail
     detail = Detail.find(params[:id])
     current_user.user_details.create(detail: detail)
-    flash[:success] = 'Detail added successfully'
+    flash[:success] = 'Added successfully!'
     redirect_to root_path
   end
   
