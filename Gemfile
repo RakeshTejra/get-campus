@@ -39,7 +39,7 @@ gem 'bootstrap-sass'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'tinymce-rails'
+gem 'tinymce-rails', :git => 'https://github.com/RakeshTejra/tinymce-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
